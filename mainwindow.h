@@ -1,8 +1,6 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QStringListModel>
-#include <QListWidgetItem>
 
 #include "model.h"
 
@@ -58,7 +56,7 @@ private slots:
     void on_pb_cakes_clicked();
 
     // Вспомогательные
-    void on_list_widget_currentRowChanged(int currentRow);
+    void on_list_widget_currentRowChanged(int current_row);
 
 
 private:

@@ -1,6 +1,5 @@
 #include <iterator>
 #include <algorithm>
-#include <cctype>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -18,8 +17,6 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::ApplyModel() {
-    ui->pb_pop_back->setDisabled(deque_model_.items.empty());
-
     auto preserve_iter = deque_model_.iterator;
 
     ui->list_widget->clear();
@@ -87,18 +84,27 @@ void MainWindow::on_pb_find_clicked() {
 }
 
 void MainWindow::on_pb_count_clicked() {
-    QString str = ui->le_count->text();
-    int x = static_cast<int>(std::count(deque_model_.items.begin(),
-                                        deque_model_.items.end(),
-                                        str.toStdString()));
-    ui->lbl_count->setText(QString::number(x));
+    QString str_count = ui->le_count->text();
+    int size = static_cast<int>(std::count(deque_model_.items.begin(),
+                                           deque_model_.items.end(),
+                                           str_count.toStdString()));
+    ui->lbl_count->setText(QString::number(size));
 }
 
 void MainWindow::on_pb_resize_clicked() {
-    int x = ui->txt_size->text().toInt();
-    if (x < 0) return;
-    deque_model_.items.resize(static_cast<size_t>(x));
+    bool ok = false;
+    int requested  = ui->txt_size->text().toInt(&ok);
+    if (!ok)  {
+        return;
+    }
+
+    constexpr int min_size = 0;
+    constexpr int max_size = 1000;
+    const int clamped = std::clamp(requested, min_size, max_size);
+
+    deque_model_.items.resize(static_cast<size_t>(clamped));
     deque_model_.iterator = deque_model_.items.begin();
+
     ApplyModel();
 }
 
@@ -151,12 +157,6 @@ void MainWindow::on_pb_clear_clicked() {
 
 //--------------------------------Алгоритмы------------------------------------
 void MainWindow::on_pb_min_element_clicked() {
-    if (deque_model_.items.empty()) {
-        deque_model_.iterator = deque_model_.items.end();
-        ApplyIterator();
-        return;
-    }
-
     deque_model_.iterator = std::min_element(
         deque_model_.items.begin(),
         deque_model_.items.end());
@@ -165,12 +165,6 @@ void MainWindow::on_pb_min_element_clicked() {
 }
 
 void MainWindow::on_pb_max_element_clicked() {
-    if (deque_model_.items.empty()) {
-        deque_model_.iterator = deque_model_.items.end();
-        ApplyIterator();
-        return;
-    }
-
     deque_model_.iterator = std::max_element(
         deque_model_.items.begin(),
         deque_model_.items.end());
@@ -186,17 +180,16 @@ void MainWindow::on_pb_merge_sort_clicked() {
 }
 
 void MainWindow::on_pb_merge_sort_case_insensitive_clicked() {
-    deque_model_.items = MergeSort(deque_model_.items,
-                                   [](const std::string& a, const std::string& b) {
-                                       return std::lexicographical_compare(
-                                           a.begin(), a.end(),
-                                           b.begin(), b.end(),
-                                           [](unsigned char ca, unsigned char cb) {
-                                               return std::tolower(ca) < std::tolower(cb);
-                                           });
-                                   });
+    deque_model_.items = MergeSort(
+        deque_model_.items,
+        [](const std::string& left, const std::string& right) {
+            return QString::compare(QString::fromStdString(left),
+                                    QString::fromStdString(right),
+                                    Qt::CaseInsensitive) < 0;
+        });
 
     deque_model_.iterator = deque_model_.items.begin();
+
     ApplyModel();
 }
 
@@ -225,8 +218,7 @@ void MainWindow::on_pb_shuffle_clicked() {
     ApplyModel();
 }
 
-void MainWindow::on_pb_lower_bound_clicked()
-{
+void MainWindow::on_pb_lower_bound_clicked() {
     if (!std::is_sorted(deque_model_.items.begin(), deque_model_.items.end())) {
         return;
     }
@@ -237,9 +229,7 @@ void MainWindow::on_pb_lower_bound_clicked()
     ApplyIterator();
 }
 
-
-void MainWindow::on_pb_upper_bound_clicked()
-{
+void MainWindow::on_pb_upper_bound_clicked() {
     if (!std::is_sorted(deque_model_.items.begin(), deque_model_.items.end())) {
         return;
     }
@@ -282,7 +272,6 @@ void MainWindow::on_pb_tea_clicked() {
     ApplyModel();
 }
 
-
 void MainWindow::on_pb_cakes_clicked() {
     deque_model_.items = Model::cakes;
     deque_model_.iterator = deque_model_.items.begin();
@@ -290,15 +279,14 @@ void MainWindow::on_pb_cakes_clicked() {
 }
 
 //--------------------------------Вспомогательные методы--------------------------------
-
-void MainWindow::on_list_widget_currentRowChanged(int currentRow) {
-    if (currentRow < 0) {
+void MainWindow::on_list_widget_currentRowChanged(int current_row) {
+    if (current_row < 0) {
         return;
     }
-    if (currentRow == static_cast<int>(deque_model_.items.size())) {
+    if (current_row == static_cast<int>(deque_model_.items.size())) {
         deque_model_.iterator = deque_model_.items.end();
     } else {
-        deque_model_.iterator = deque_model_.items.begin() + currentRow;
+        deque_model_.iterator = deque_model_.items.begin() + current_row;
     }
     ApplyIterator();
 }

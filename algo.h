@@ -3,36 +3,32 @@
 #include <deque>
 
 template<class T, class Comp>
-inline std::deque<T> Merge(const std::deque<T>& half1, const std::deque<T>& half2, const Comp& comparator) {
-    std::deque<T> sort{};
-    int x{}, y{};
+inline std::deque<T> Merge(const std::deque<T>& half1,
+                           const std::deque<T>& half2,
+                           const Comp& comparator) {
+    std::deque<T> result{};
+    auto left_it  = half1.begin();
+    auto right_it = half2.begin();
 
-    while(half1.size() > x && half2.size() > y) {
-        if(comparator(half1[x], half2[y])) {
-            sort.push_back(half1[x]);
-            x++;
+    while (left_it != half1.end() && right_it != half2.end()) {
+        if (comparator(*left_it, *right_it)) {
+            result.push_back(*left_it);
+            ++left_it;
         } else {
-            sort.push_back(half2[y]);
-            y++;
+            result.push_back(*right_it);
+            ++right_it;
         }
     }
 
-    while(x < half1.size()) {
-        sort.push_back(half1[x]);
-        ++x;
-    }
+    result.insert(result.end(), left_it, half1.end());
+    result.insert(result.end(), right_it, half2.end());
 
-    while(y < half2.size()) {
-        sort.push_back(half2[y]);
-        ++y;
-    }
-
-    return sort;
+    return result;
 }
 
 template<class T, class Comp>
 inline std::deque<T> MergeSort(const std::deque<T>& src, const Comp& comparator) {
-    if(src.size() <=1) {
+    if (src.size() <=1) {
         return src;
     }
 

@@ -11,7 +11,7 @@ struct Model {
 
     std::mt19937 random_gen{std::random_device{}()};
 
-    inline static std::deque<std::string> tea {
+    inline static const Deque tea {
         "Чай Лунцзин",
         "Эрл Грей",
         "Сенча",
@@ -24,7 +24,7 @@ struct Model {
         "Лапсанг Сушонг"
     };
 
-    inline static std::deque<std::string> cakes {
+    inline static const Deque cakes {
         "Красный бархат",
         "Наполеон",
         "Медовик",
