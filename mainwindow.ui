@@ -14,313 +14,303 @@
    <string>std::deque demo</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>1</x>
-      <y>10</y>
-      <width>680</width>
-      <height>790</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_3">
-     <item row="0" column="0">
-      <widget class="QListWidget" name="list_widget"/>
-     </item>
-     <item row="0" column="1">
-      <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="gridLayout_3">
 
-       <!-- Строка: значение элемента + Edit + find -->
-       <item row="0" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLineEdit" name="txt_elem_content"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pb_edit">
-           <property name="text">
-            <string>Edit</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pb_find">
-           <property name="text">
-            <string>find</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
+    <item row="0" column="0">
+     <widget class="QListWidget" name="list_widget"/>
+    </item>
 
-       <!-- Строка: count -->
-       <item row="1" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLineEdit" name="le_count"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pb_count">
-           <property name="text">
-            <string>count</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="lbl_count">
-           <property name="text">
-            <string>0</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
+    <item row="0" column="1">
+     <layout class="QGridLayout" name="gridLayout_2">
 
-       <!-- Основная сетка кнопок -->
-       <item row="2" column="0">
-        <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLineEdit" name="txt_elem_content"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pb_edit">
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pb_find">
+          <property name="text">
+           <string>find</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
 
-         <item row="0" column="0">
-          <widget class="QLabel" name="l_med">
-           <property name="text">
-            <string>Методы</string>
-           </property>
-          </widget>
-         </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLineEdit" name="le_count"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pb_count">
+          <property name="text">
+           <string>count</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lbl_count">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
 
-         <item row="1" column="0">
-          <widget class="QPushButton" name="pb_pop_back">
-           <property name="text">
-            <string>pop_back</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QPushButton" name="pb_push_back">
-           <property name="text">
-            <string>push_back</string>
-           </property>
-          </widget>
-         </item>
+      <item row="2" column="0">
+       <layout class="QGridLayout" name="gridLayout">
 
-         <item row="2" column="0">
-          <widget class="QPushButton" name="pb_pop_front">
-           <property name="text">
-            <string>pop_front</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QPushButton" name="pb_push_front">
-           <property name="text">
-            <string>push_front</string>
-           </property>
-          </widget>
-         </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="l_med">
+          <property name="text">
+           <string>Методы</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="3" column="0">
-          <widget class="QPushButton" name="pb_erase">
-           <property name="text">
-            <string>erase</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QPushButton" name="pb_insert">
-           <property name="text">
-            <string>insert</string>
-           </property>
-          </widget>
-         </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="pb_pop_back">
+          <property name="text">
+           <string>pop_back</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="pb_push_back">
+          <property name="text">
+           <string>push_back</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="4" column="0">
-          <widget class="QPushButton" name="pb_clear">
-           <property name="text">
-            <string>clear</string>
-           </property>
-          </widget>
-         </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="pb_pop_front">
+          <property name="text">
+           <string>pop_front</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="pb_push_front">
+          <property name="text">
+           <string>push_front</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="5" column="0">
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Алгоритмы</string>
-           </property>
-          </widget>
-         </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="pb_erase">
+          <property name="text">
+           <string>erase</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QPushButton" name="pb_insert">
+          <property name="text">
+           <string>insert</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="6" column="0">
-          <widget class="QPushButton" name="pb_min_element">
-           <property name="text">
-            <string>min_element</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="QPushButton" name="pb_max_element">
-           <property name="text">
-            <string>max_element</string>
-           </property>
-          </widget>
-         </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="pb_clear">
+          <property name="text">
+           <string>clear</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="7" column="0">
-          <widget class="QPushButton" name="pb_lower_bound">
-           <property name="text">
-            <string>lower_bound</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="1">
-          <widget class="QPushButton" name="pb_upper_bound">
-           <property name="text">
-            <string>upper_bound</string>
-           </property>
-          </widget>
-         </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Алгоритмы</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="8" column="0">
-          <widget class="QPushButton" name="pb_merge_sort">
-           <property name="text">
-            <string>merge sort</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="1">
-          <widget class="QPushButton" name="pb_merge_sort_case_insensitive">
-           <property name="text">
-            <string>merge sOrT</string>
-           </property>
-          </widget>
-         </item>
+        <item row="6" column="0">
+         <widget class="QPushButton" name="pb_min_element">
+          <property name="text">
+           <string>min_element</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QPushButton" name="pb_max_element">
+          <property name="text">
+           <string>max_element</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="9" column="0">
-          <widget class="QPushButton" name="pb_shuffle">
-           <property name="text">
-            <string>shuffle</string>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="1">
-          <widget class="QPushButton" name="pb_unique">
-           <property name="text">
-            <string>unique</string>
-           </property>
-          </widget>
-         </item>
+        <item row="7" column="0">
+         <widget class="QPushButton" name="pb_lower_bound">
+          <property name="text">
+           <string>lower_bound</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QPushButton" name="pb_upper_bound">
+          <property name="text">
+           <string>upper_bound</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="10" column="0">
-          <widget class="QPushButton" name="pb_reverse">
-           <property name="text">
-            <string>reverse</string>
-           </property>
-          </widget>
-         </item>
+        <item row="8" column="0">
+         <widget class="QPushButton" name="pb_merge_sort">
+          <property name="text">
+           <string>merge sort</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QPushButton" name="pb_merge_sort_case_insensitive">
+          <property name="text">
+           <string>merge sOrT</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="11" column="0">
-          <widget class="QLabel" name="l_iter">
-           <property name="text">
-            <string>Итератор</string>
-           </property>
-          </widget>
-         </item>
+        <item row="9" column="0">
+         <widget class="QPushButton" name="pb_shuffle">
+          <property name="text">
+           <string>shuffle</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QPushButton" name="pb_unique">
+          <property name="text">
+           <string>unique</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="12" column="0">
-          <widget class="QPushButton" name="pb_dec_iterator">
-           <property name="text">
-            <string>--</string>
-           </property>
-          </widget>
-         </item>
-         <item row="12" column="1">
-          <widget class="QPushButton" name="pb_inc_iterator">
-           <property name="text">
-            <string>++</string>
-           </property>
-          </widget>
-         </item>
+        <item row="10" column="0">
+         <widget class="QPushButton" name="pb_reverse">
+          <property name="text">
+           <string>reverse</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="13" column="0">
-          <widget class="QPushButton" name="pb_begin">
-           <property name="text">
-            <string>begin</string>
-           </property>
-          </widget>
-         </item>
-         <item row="13" column="1">
-          <widget class="QPushButton" name="pb_end">
-           <property name="text">
-            <string>end</string>
-           </property>
-          </widget>
-         </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="l_iter">
+          <property name="text">
+           <string>Итератор</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="14" column="0">
-          <widget class="QLabel" name="l_zag">
-           <property name="text">
-            <string>Заготовки</string>
-           </property>
-          </widget>
-         </item>
+        <item row="12" column="0">
+         <widget class="QPushButton" name="pb_dec_iterator">
+          <property name="text">
+           <string>--</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QPushButton" name="pb_inc_iterator">
+          <property name="text">
+           <string>++</string>
+          </property>
+         </widget>
+        </item>
 
-         <item row="15" column="0">
-          <widget class="QPushButton" name="pb_tea">
-           <property name="text">
-            <string>= чай</string>
-           </property>
-          </widget>
-         </item>
-         <item row="15" column="1">
-          <widget class="QPushButton" name="pb_cakes">
-           <property name="text">
-            <string>= торты</string>
-           </property>
-          </widget>
-         </item>
+        <item row="13" column="0">
+         <widget class="QPushButton" name="pb_begin">
+          <property name="text">
+           <string>begin</string>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="1">
+         <widget class="QPushButton" name="pb_end">
+          <property name="text">
+           <string>end</string>
+          </property>
+         </widget>
+        </item>
 
-        </layout>
-       </item>
+        <item row="14" column="0">
+         <widget class="QLabel" name="l_zag">
+          <property name="text">
+           <string>Заготовки</string>
+          </property>
+         </widget>
+        </item>
 
-       <item row="3" column="0">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
+        <item row="15" column="0">
+         <widget class="QPushButton" name="pb_tea">
+          <property name="text">
+           <string>= чай</string>
+          </property>
+         </widget>
+        </item>
+        <item row="15" column="1">
+         <widget class="QPushButton" name="pb_cakes">
+          <property name="text">
+           <string>= торты</string>
+          </property>
+         </widget>
+        </item>
 
-       <item row="4" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>size():</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="txt_size"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pb_resize">
-           <property name="text">
-            <string>resize</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
+       </layout>
+      </item>
 
-      </layout>
-     </item>
-    </layout>
-   </widget>
+      <item row="3" column="0">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+
+      <item row="4" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>size():</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txt_size"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pb_resize">
+          <property name="text">
+           <string>resize</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+
+     </layout>
+    </item>
+
+   </layout>
   </widget>
  </widget>
  <resources/>
